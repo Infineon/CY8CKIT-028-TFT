@@ -23,15 +23,15 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "Shield Board Support Package (CY8CKIT-028-TFT)", "index.html", [
-    [ "CY8CKIT-028-TFT shield support package", "index.html", null ],
+  [ "Shield Library (CY8CKIT-028-TFT)", "index.html", [
+    [ "CY8CKIT-028-TFT shield support library", "index.html", null ],
     [ "API Reference", "modules.html", "modules" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"group__group__board__libs__pins.html"
+"group__group__board__libs__codec.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

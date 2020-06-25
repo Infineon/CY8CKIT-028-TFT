@@ -1,12 +1,24 @@
-# CY8CKIT-028-TFT
-CY8CKIT-028-TFT version 1.0.0.
-
-This is the first release of this library. It contains:
-* driver for the TFT display
-* emWin configuration files
+# CY8CKIT-028-TFT shield support library
+The TFT Display Shield Board (CY8CKIT-028-TFT) has been designed such that a TFT display, audio devices, and sensors can interface with PSoC MCUs.
 
 See [README.md](README.md) for details on how to use this library.
 
+### What's Included?
+This library includes support for each of the hardware components included on the shield:
+
+* 2.4 inch TFT Display (ST7789V)
+* Motion Sensor (BMI-160)
+* Ambient Light Sensor (TEMT6000X01)
+* PDM Microphone example code (SPK0838HT4HB)
+* Audio Codec (AK4954A) (not yet supported in this library)
+
+### What Changed?
+#### v1.1.0
+* Added support for motion sensor
+* Added support for light sensor
+* Reorganized TFT code into separate sub library
+#### v1.0.0
+* Initial release supporting the TFT display only
 
 ### Supported Software and Tools
 This version of the CY8CKIT-028-TFT library was validated for compatibility with the following Software and Tools:
@@ -23,9 +35,9 @@ This version of the CY8CKIT-028-TFT library was validated for compatibility with
 * [API Reference Guide](https://cypresssemiconductorco.github.io/CY8CKIT-028-TFT/html/index.html)
 * [CY8CKIT-028-TFT Documentation](https://www.cypress.com/documentation/development-kitsboards/tft-display-shield-board-cy8ckit-028-tft)
 * [SEGGER emWin Middleware Library](https://github.com/cypresssemiconductorco/emwin)
-* [Cypress Semiconductor](http://www.cypress.com)
+* [Cypress Semiconductor, an Infineon Technologies Company](http://www.cypress.com)
 * [Cypress Semiconductor GitHub](https://github.com/cypresssemiconductorco)
 * [ModusToolbox](https://www.cypress.com/products/modustoolbox-software-environment)
 
 ---
-© Cypress Semiconductor Corporation, 2019.
+© Cypress Semiconductor Corporation, 2019-2020.

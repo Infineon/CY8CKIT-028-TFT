@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Shield Board Support Package (CY8CKIT-028-TFT)</title>
+<title>Shield Library (CY8CKIT-028-TFT)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,9 +29,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="cypress_logo.png"/></a></td>
+  <td id="projectlogo"><a href="http://www.cypress.com/"><img alt="Logo" src="logo.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Shield Board Support Package (CY8CKIT-028-TFT)</div>
+   <div id="projectname">Shield Library (CY8CKIT-028-TFT)</div>
   </td>
  </tr>
  </tbody>
@@ -87,46 +87,45 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CY8CKIT-028-TFT shield support package </div>  </div>
+<div class="title">CY8CKIT-028-TFT shield support library </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>The TFT Display Shield Board (CY8CKIT-028-TFT) has been designed such that a TFT display, audio devices, and sensors can interface with Cypress' PSoC 6 MCUs.</p>
+<div class="textblock"><p>The TFT Display Shield Board (CY8CKIT-028-TFT) has been designed such that a TFT display, audio devices, and sensors can interface with PSoC MCUs.</p>
 <p>It comes with the features below to enable everyday objects to connect to the Internet of Things (IoT).</p>
 <ul>
-<li>2.4 inch TFT Display</li>
-<li>Motion Sensor (not yet supported in this library)</li>
-<li>Ambient Light Sensor (not yet supported in this library)</li>
-<li>PDM Microphone (not yet supported in this library)</li>
-<li>Audio Codec (not yet supported in this library)</li>
-<li>3.5-mm Audio Jack (not yet supported in this library)</li>
+<li>2.4 inch TFT Display (ST7789V)</li>
+<li>Motion Sensor (BMI-160)</li>
+<li>Ambient Light Sensor (TEMT6000X01)</li>
+<li>PDM Microphone example code (SPK0838HT4HB)</li>
+<li>Audio Codec (AK4954A)</li>
 </ul>
 <p>This shield has a Newhaven 2.4″ 240×320 TFT display with a Sitronix ST7789 display controller and uses the 8080-Series Parallel Interface.</p>
-<p>The E-ink Display Shield Board uses the Arduino Uno pin layout plus an additional 6 pins. It is compatable with the PSoC 6 Pinoeer Kits. Refer to the respective kit guides for more details.</p>
+<p>The shield library provides support for:</p><ul>
+<li>Initializing/freeing all of the hardware peripheral resources on the board</li>
+<li>Defining all pin mappings from the Arduino interface to the different peripherals</li>
+<li>Providing access to each of the underlying peripherals on the board</li>
+</ul>
+<p>This library makes use of support libraries: <a href="https://github.com/cypresssemiconductorco/display-tft-st7789v">display-tft-st7789v</a>, <a href="https://github.com/cypresssemiconductorco/sensor-light">sensor-light</a>, <a href="https://github.com/cypresssemiconductorco/sensor-motion-bmi160">sensor-motion-bmi160</a>, and <a href="https://github.com/cypresssemiconductorco/audio-codec-ak4954a">audio-codec-ak4954a</a>. These can be seen in the libs directory and can be used directly instead of through the shield if desired.</p>
+<p>The TFT Display Shield Board uses the Arduino Uno pin layout plus an additional 6 pins. It is compatible with the PSoC 4 and PSoC 6 Pioneer Kits. Refer to the respective kit guides for more details.</p>
 <div class="image">
 <img src="board.png" alt="board.png"/>
 </div>
 <h1>Quick Start Guide</h1>
 <ul>
-<li><a href="#tft-emwin-project">TFT emWin project</a></li>
+<li><a href="https://github.com/cypresssemiconductorco/display-tft-st7789v#quick-start">Display usage</a></li>
+<li><a href="https://github.com/cypresssemiconductorco/sensor-motion-bmi160#quick-start">Motion Sensor usage</a></li>
+<li><a href="https://github.com/cypresssemiconductorco/sensor-light#quick-start">Light Sensor usage</a></li>
+<li><a href="https://github.com/cypresssemiconductorco/audio-codec-ak4954a#quick-start">Audio Codec usage</a></li>
 </ul>
-<h2>TFT emWin project</h2>
-<p>Follow the steps bellow in order to create a simple emWin project and display some text on it.</p><ol type="1">
-<li>create an empty PSoC6 project</li>
-<li>add this package to the project</li>
-<li>add emWin library to the project</li>
-<li>enable EMWIN_NOSNTS emWin library option by adding it to the Makefile COMPONENTS list: <div class="fragment"><div class="line">COMPONENTS+=EMWIN_NOSNTS</div></div><!-- fragment --></li>
-<li>place the following code in the main.c file: <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;cy_pdl.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;cyhal.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;cybsp.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;GUI.h&quot;</span></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    cy_rslt_t result;</div><div class="line"></div><div class="line">    <span class="comment">/* Initialize the device and board peripherals */</span></div><div class="line">    result = cybsp_init();</div><div class="line">    CY_ASSERT(result == CY_RSLT_SUCCESS);</div><div class="line"></div><div class="line">    __enable_irq();</div><div class="line"></div><div class="line">    GUI_Init();</div><div class="line">    GUI_DispString(<span class="stringliteral">&quot;Hello world!&quot;</span>);</div><div class="line"></div><div class="line">    <span class="keywordflow">for</span>(;;)</div><div class="line">    {</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --></li>
-<li>Build the project and program the kit.</li>
-</ol>
 <h3>More information</h3>
 <ul>
-<li><a href="https://cypresssemiconductorco.github.io/cy8ckit-028-tft/html/index.html">API Reference Guide</a></li>
+<li><a href="https://cypresssemiconductorco.github.io/CY8CKIT-028-TFT/html/index.html">API Reference Guide</a></li>
 <li><a href="https://www.cypress.com/documentation/development-kitsboards/tft-display-shield-board-cy8ckit-028-tft">CY8CKIT-028-TFT Documentation</a></li>
 <li><a href="https://github.com/cypresssemiconductorco/emwin">SEGGER emWin Middleware Library</a></li>
-<li><a href="http://www.cypress.com">Cypress Semiconductor</a></li>
+<li><a href="http://www.cypress.com">Cypress Semiconductor, an Infineon Technologies Company</a></li>
 <li><a href="https://github.com/cypresssemiconductorco">Cypress Semiconductor GitHub</a></li>
 <li><a href="https://www.cypress.com/products/modustoolbox-software-environment">ModusToolbox</a> <hr/>
- © Cypress Semiconductor Corporation, 2019. </li>
+ © Cypress Semiconductor Corporation, 2019-2020. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
@@ -134,7 +133,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div id="nav-path" class="navpath">
     <ul>
         <li class="footer">
-            Generated for <b>Shield Board Support Package (CY8CKIT-028-TFT)</b> by <b>Cypress Semiconductor Corporation</b>.
+            Generated for <b>Shield Library (CY8CKIT-028-TFT)</b> by <b>Cypress Semiconductor Corporation</b>.
             All rights reserved.
         </li>
     </ul>
