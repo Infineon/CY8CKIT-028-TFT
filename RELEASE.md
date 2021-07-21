@@ -13,6 +13,8 @@ This library includes support for each of the hardware components included on th
 * Audio Codec (AK4954A) (not yet supported in this library)
 
 ### What Changed?
+#### v1.2.0
+* Reworked how object initialization/freeing is done.
 #### v1.1.0
 * Added support for motion sensor
 * Added support for light sensor
@@ -25,10 +27,12 @@ This version of the CY8CKIT-028-TFT library was validated for compatibility with
 
 | Software and Tools                        | Version |
 | :---                                      | :----:  |
-| ModusToolbox Software Environment         | 2.0     |
-| GCC Compiler                              | 7.4     |
-| IAR Compiler                              | 8.32    |
+| ModusToolbox Software Environment         | 2.2.1   |
+| GCC Compiler                              | 9.3.1   |
+| IAR Compiler                              | 8.4     |
 | ARM Compiler 6                            | 6.11    |
+
+Minimum required ModusToolbox Software Environment: v2.0
 
 ### More information
 
@@ -40,4 +44,4 @@ This version of the CY8CKIT-028-TFT library was validated for compatibility with
 * [ModusToolbox](https://www.cypress.com/products/modustoolbox-software-environment)
 
 ---
-© Cypress Semiconductor Corporation, 2019-2020.
+© Cypress Semiconductor Corporation, 2019-2021.

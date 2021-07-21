@@ -1,26 +1,26 @@
-/***************************************************************************//**
-* \file cy8ckit_028_tft.h
-*
-* \brief
-*    Main header file of the shield support library.
-*
-********************************************************************************
-* \copyright
-* Copyright 2018-2020 Cypress Semiconductor Corporation
-* SPDX-License-Identifier: Apache-2.0
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*******************************************************************************/
+/***********************************************************************************************//**
+ * \file cy8ckit_028_tft.h
+ *
+ * \brief
+ *    Main header file of the shield support library.
+ *
+ ***************************************************************************************************
+ * \copyright
+ * Copyright 2018-2021 Cypress Semiconductor Corporation
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **************************************************************************************************/
 
 #pragma once
 
@@ -49,19 +49,23 @@
  *
  * \addtogroup group_board_libs_codec
  * \{
- * The audio codec is handled by the audio-codec-ak4954a library, details are available at https://github.com/cypresssemiconductorco/audio-codec-ak4954a.
+ * The audio codec is handled by the audio-codec-ak4954a library, details are available at
+ * https://github.com/cypresssemiconductorco/audio-codec-ak4954a.
  * \}
  * \addtogroup group_board_libs_light
  * \{
- * The light sensor is handled by the sensor-light library, details are available at https://github.com/cypresssemiconductorco/sensor-light.
+ * The light sensor is handled by the sensor-light library, details are available at
+ * https://github.com/cypresssemiconductorco/sensor-light.
  * \}
  * \addtogroup group_board_libs_motion
  * \{
- * The motion sensor is handled by the sensor-motion-bmi160 library, details are available at https://github.com/cypresssemiconductorco/sensor-motion-bmi160.
+ * The motion sensor is handled by the sensor-motion-bmi160 library, details are available at
+ * https://github.com/cypresssemiconductorco/sensor-motion-bmi160.
  * \}
  * \addtogroup group_board_libs_display
  * \{
- * The display is handled by the display-tft-st7789v library, details are available at https://github.com/cypresssemiconductorco/display-tft-st7789v.
+ * The display is handled by the display-tft-st7789v library, details are available at
+ * https://github.com/cypresssemiconductorco/display-tft-st7789v.
  * \}
  */
 
@@ -95,9 +99,9 @@ extern "C"
  * . If NULL, the PDM object will not be initialized.
  * @return CY_RSLT_SUCCESS if properly initialized, else an error indicating what went wrong.
  */
-cy_rslt_t cy8ckit_028_tft_init(cyhal_i2c_t *i2c_inst, cyhal_adc_t *adc_inst,
-                               cyhal_pdm_pcm_cfg_t *pdm_pcm_cfg,
-                               cyhal_clock_t *audio_clock_inst);
+cy_rslt_t cy8ckit_028_tft_init(cyhal_i2c_t* i2c_inst, cyhal_adc_t* adc_inst,
+                               const cyhal_pdm_pcm_cfg_t* pdm_pcm_cfg,
+                               cyhal_clock_t* audio_clock_inst);
 // For more information about the pdm_pcm_cfg and audio_clock_inst parameters,
 // see ../common/microphone_spk0838ht4hb.h
 
@@ -114,7 +118,8 @@ mtb_light_sensor_t* cy8ckit_028_tft_get_light_sensor(void);
 mtb_bmi160_t* cy8ckit_028_tft_get_motion_sensor(void);
 
 /**
- * Gives the user access to the PDM object used with the microphone
+ * Gives the user access to the PDM object use with the microphone.
+ * This will be null if the arguments to setup the PDM interface were not provided.
  * @return A reference to the PDM microphone object on this shield.
  */
 cyhal_pdm_pcm_t* cy8ckit_028_tft_get_pdm(void);

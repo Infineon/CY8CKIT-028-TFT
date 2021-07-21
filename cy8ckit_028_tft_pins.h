@@ -1,43 +1,43 @@
-/***************************************************************************//**
-* \file cy8ckit_028_tft_pins.h
-*
-* \brief
-*    Main header file of the shield support library.
-*
-********************************************************************************
-* \copyright
-* Copyright 2018-2020 Cypress Semiconductor Corporation
-* SPDX-License-Identifier: Apache-2.0
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*******************************************************************************/
+/***********************************************************************************************//**
+ * \file cy8ckit_028_tft_pins.h
+ *
+ * \brief
+ *    Main header file of the shield support library.
+ *
+ ***************************************************************************************************
+ * \copyright
+ * Copyright 2018-2021 Cypress Semiconductor Corporation
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **************************************************************************************************/
 
 #pragma once
 
 #include "cybsp.h"
 
 /**
-* \addtogroup group_board_libs_pins
-* \{
-* Pin mapping of the GPIOs used by shield peripherals
-*/
+ * \addtogroup group_board_libs_pins
+ * \{
+ * Pin mapping of the GPIOs used by shield peripherals
+ */
 
 #if defined(__cplusplus)
 extern "C"
 {
 #endif
 
-/* Display connections */
+// Display connections
 /** Pin for the Display Data8 signal */
 #define CY8CKIT_028_TFT_PIN_DISPLAY_DB8      (CYBSP_J2_2)
 /** Pin for the Display Data9 signal */
@@ -63,7 +63,7 @@ extern "C"
 /** Pin for the Display Reset signal */
 #define CY8CKIT_028_TFT_PIN_DISPLAY_RST      (CYBSP_D13)
 
-/* Internal measurement unit (IMU) : accelerometer + gyro */
+// Internal measurement unit (IMU) : accelerometer + gyro
 /** Pin for the Accelerometer/Gyroscope I2C SCL signal */
 #define CY8CKIT_028_TFT_PIN_IMU_I2C_SCL      (CYBSP_I2C_SCL)
 /** Pin for the Accelerometer/Gyroscope I2C SDA signal */
@@ -73,17 +73,17 @@ extern "C"
 /** Pin for the Accelerometer/Gyroscope Interrupt2 signal */
 #define CY8CKIT_028_TFT_PIN_IMU_INT_2        (CYBSP_A3)
 
-/* Ambient light sensor */
+// Ambient light sensor
 /** Pin for the Ambient light sensor */
 #define CY8CKIT_028_TFT_PIN_ALS_OUT          (CYBSP_A0)
 
-/* PDM Microphone */
+// PDM Microphone
 /** Pin for the PDM Clock */
 #define CY8CKIT_028_TFT_PIN_PDM_CLK          (CYBSP_A4)
 /** Pin for the PDM Data */
 #define CY8CKIT_028_TFT_PIN_PDM_DATA         (CYBSP_A5)
 
-/* Audio Codec */
+// Audio Codec
 /** Pin for the Audio Codec's I2C SCL signal */
 #define CY8CKIT_028_TFT_PIN_CODEC_I2C_SCL    (CYBSP_I2C_SCL)
 /** Pin for the Audio Codec's I2C SDA signal */

@@ -41,4 +41,4 @@ The TFT Display Shield Board uses the Arduino Uno pin layout plus an additional 
 * [ModusToolbox](https://www.cypress.com/products/modustoolbox-software-environment)
 
 ---
-© Cypress Semiconductor Corporation, 2019-2020.
+© Cypress Semiconductor Corporation, 2019-2021.
